@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Дизайн сайта для разных экранов.</title>
+	<style>
+		body {
+			background-image: url("4.jpg");
+			background-repeat:no-repeat;
+			background-size:cover;
+			padding:20px;
+			font-family:sans-serif;
+			overflow-y:scroll;
+			} 
+		*{vertical-align:top;}
+		h2{margin:0 0 20px 0;}
+		span.small{
+			font-size:58%;
+			vertical-align:middle;
+		}
+		#url{
+			margin:0 0 19px 0px;
+			display:block;
+			}
+		#url input[type=text]{
+			border:solid 1px #666;
+			width:85%;
+			margin:0 auto;
+			font-size:24pt;
+			text-align:left;
+			}
+		#url input[type=submit]{display:none;}
+		#url #options{
+			float:right;
+			line-height:28px;
+			width:11%;
+			}
+		#url #options input{margin-top:5px;}
+		#frames{
+			overflow-x:scroll;
+			width:100%;
+			margin-bottom:10px;
+			padding-bottom:20px;
+			}
+		.frame{
+			margin-right:20px;
+			float:left;
+			}
+		.frame:last-child{margin-right:0;}
+		.frame img{
+			display:none;
+			vertical-align:middle;
+			}
+		iframe{border:solid 1px #000;}
+		.widthOnly {height:580px;}
+		.widthOnly h2 span{display:none;}
+		.widthOnly iframe{height:500px;}
+	</style>
+</head>
+<body id="container">
+	<div id="url">
+		<form method="post">
+			<input type="text" placeholder="Сюда пишите url сайта который хотите посмотреть(нажать enter)" />
+			<input type="submit" value="submit">
+			<div id="options">
+				<label for="normal"><input id="normal" type="radio" name="option" value="1" checked>только<i> ширина</i> </label><br />
+				<label for="accurate"><input id="accurate" type="radio" name="option" value="2">Размеры устройств</label><br />
+				<label for="scrollbar"><input id="scrollbar" type="checkbox" name="scrollbar" value="1" checked>Сайт без его личных ползунков</label>
+			</div>
+		</form>
+	</div>
+	<div id="frames" class="widthOnly">
+		<div id="inner">
+			<div id="f1" class="frame">
+				<h2>240<span> x 320</span> <span class="small">(экран телефона)</span></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="255" height="320"></iframe>
+			</div>
+			<div id="f2" class="frame">
+				<h2>320<span> x 480</span> <span class="small">(экран айфона)</span></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="335" height="480"></iframe>
+			</div>
+			<div id="f3" class="frame">
+				<h2>480<span> x 640</span> <span class="small">(экран планшета)</span></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="495" height="640"></iframe>
+			</div>
+			<div id="f4" class="frame">
+				<h2>768<span> x 1024</span> <span class="small">(айпад портрет)</span></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="783" height="1024"></iframe>
+			</div>
+			<div id="f5" class="frame">
+				<h2>1024<span> x 768</span> <span class="small">(айпад поворот)</span> </h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="1039" height="768"></iframe>
+			</div>
+		</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<script src="magic.js"></script>
+</body>
+</html>
